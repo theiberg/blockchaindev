@@ -41,14 +41,15 @@ class Block {
             // Save in auxiliary variable the current block hash
             let currentHash = self.hash;
 
-            // Recalculate the hash of the Block
+            // Recalculate the hash of the Block, then reset hash to previous value
             self.hash = null;
-            self.hash = SHA256(JSON.stringify(self)).toString();
+            let calculatedHash = SHA256(JSON.stringify(self)).toString();
+            self.hash = currentHash;
 
             // Comparing if the hashes changed
             // Returning the Block is not valid
             // Returning the Block is valid
-            resolve(currentHash == self.hash);
+            resolve(currentHash == calculatedHash);
         });
     }
 
@@ -70,11 +71,11 @@ class Block {
         let self = this;
         return new Promise((resolve, reject) => {
             try {
-                let decoded = JSON.parse(hex2ascii(self.body));
-                if ('data' in decoded) {
+                if (self.height === 0) {
                     // Genesis block. Return empty object
                     resolve({});
                 } else {
+                    let decoded = JSON.parse(hex2ascii(self.body));
                     resolve(decoded);
                 }
             } catch (err) {
