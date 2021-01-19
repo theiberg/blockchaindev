@@ -65,8 +65,8 @@ class BlockchainController {
                 const star = req.body.star;
                 try {
                     let block = await this.blockchain.submitStar(address, message, signature, star);
-                    let errors = await this.blockchain.validateChain();
-                    if (block && errors.length === 0) {
+                    //let errors = await this.blockchain.validateChain();
+                    if (block) { // && errors.length === 0) {
                         return res.status(200).json(block);
                     } else {
                         return res.status(500).send("An error happened!");
