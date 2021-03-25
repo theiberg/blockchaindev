@@ -21,6 +21,11 @@ SupplyChain contract:
 * Transaction: [0xa070a725991a5e9dfa035a34c93c0e1ec293d75515f68d5265025d686dfbd8da](https://rinkeby.etherscan.io/tx/0xa070a725991a5e9dfa035a34c93c0e1ec293d75515f68d5265025d686dfbd8da)
 * Contract addresss: [0x10bdf2136d3ce0fb5838744b128c25ecb7860fbb](https://rinkeby.etherscan.io/address/0x10bdf2136d3ce0fb5838744b128c25ecb7860fbb)
 
+### Tools versions
+* Node: v14.15.1
+* Truffle: v5.1.62
+* Web3: v1.2.9
+
 ## UML Diagrams
 ### Activitity Diagram
 ![Activity diagram](images/uml/activity_diagram.png)
